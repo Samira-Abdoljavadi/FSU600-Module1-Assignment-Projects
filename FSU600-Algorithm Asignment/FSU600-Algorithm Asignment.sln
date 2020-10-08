@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSU600-Algorithm Asignment", "FSU600-Algorithm Asignment\FSU600-Algorithm Asignment.csproj", "{7B8D90BB-0C61-4595-AE1C-A5FB6149810B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B8D90BB-0C61-4595-AE1C-A5FB6149810B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8D90BB-0C61-4595-AE1C-A5FB6149810B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8D90BB-0C61-4595-AE1C-A5FB6149810B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8D90BB-0C61-4595-AE1C-A5FB6149810B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C05ED9F-C98F-4A7F-BB3C-E64FCC157635}
+	EndGlobalSection
+EndGlobal
