@@ -9,12 +9,12 @@ using System.Diagnostics;
 namespace Algorithm
 {
 
-//Create a dynamic link library with the name Algorithms that contains
+    //Create a dynamic link library with the name Algorithms that contains
 
     public class Algorithmclass1
     {
 
-    //A method Swap to swap two data values at two positions in a given integer array.
+        //A method Swap to swap two data values at two positions in a given integer array.
 
         public static void Swap(int[] MyArray, int m, int n)
         {
@@ -24,7 +24,7 @@ namespace Algorithm
             MyArray[n] = temp;
         }
 
-    //A method Randomize to create the random array of data, random numbers are between 0 and 10 times the array size.
+        //A method Randomize to create the random array of data, random numbers are between 0 and 10 times the array size.
 
         public static void Randomize(int[] MyArray)
         {
@@ -35,43 +35,43 @@ namespace Algorithm
             }
         }
 
-    //A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
-    //Then call the Randomize passing it the array.
+        //A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
+        //Then call the Randomize passing it the array.
 
         public static void Prepare(int ArraySize)
         {
             int[] MyArray = new int[ArraySize];
 
 
-        //Call InsertionSort
+            //Call InsertionSort
 
             Randomize(MyArray);
             Console.WriteLine(string.Format("Here's the Random Array: [{0}].", string.Join(", ", MyArray)));
             InsertionSort(MyArray);
             Console.WriteLine(string.Format("Here's the Insertion Sorted Array: [{0}].", string.Join(", ", MyArray)));
 
-        //Call SelectionSort
+            //Call SelectionSort
 
             Randomize(MyArray);
             Console.WriteLine(string.Format("\nHere's the Random Array: [{0}].", string.Join(", ", MyArray)));
             SelectionSort(MyArray);
             Console.WriteLine(string.Format("Here's the Selection Sorted Array: [{0}].", string.Join(", ", MyArray)));
 
-        //Call BubbleSort
+            //Call BubbleSort
 
             Randomize(MyArray);
             Console.WriteLine(string.Format("\nHere's the Random Array: [{0}].", string.Join(", ", MyArray)));
             BubbleSort(MyArray);
             Console.WriteLine(string.Format("Here's the Bubble Sorted Array: [{0}].", string.Join(", ", MyArray)));
 
-        //Call MergeSort
+            //Call MergeSort
 
             Randomize(MyArray);
             Console.WriteLine(string.Format("\nHere's the Random Array: [{0}].", string.Join(", ", MyArray)));
             MergeSort(MyArray);
             Console.WriteLine(string.Format("Here's the Merge Sorted Array: [{0}].", string.Join(", ", MyArray)));
 
-        //Call QuickSort
+            //Call QuickSort
 
             Randomize(MyArray);
             Console.WriteLine(string.Format("\nHere's the Random Array: [{0}].", string.Join(", ", MyArray)));
@@ -82,9 +82,9 @@ namespace Algorithm
             //    MyArray[i] = Convert.ToInt32(Console.ReadLine());
         }
 
-    //A method to Implement each of the following sorting algorithms: 
+        //A method to Implement each of the following sorting algorithms: 
 
-    //Insertion sort 
+        //Insertion sort 
 
         public static void InsertionSort(int[] MyArray)
         {
@@ -100,7 +100,7 @@ namespace Algorithm
             }
         }
 
-    //Selection sort
+        //Selection sort
 
         public static void SelectionSort(int[] MyArray)
         {
@@ -118,7 +118,7 @@ namespace Algorithm
             }
         }
 
-    //Bubble Sort  
+        //Bubble Sort  
 
         public static void BubbleSort(int[] MyArray)
         {
@@ -134,7 +134,7 @@ namespace Algorithm
             }
         }
 
-    //Merge Sort
+        //Merge Sort
 
         public static void MergeSort(int[] MyArray)
         {
@@ -143,50 +143,50 @@ namespace Algorithm
 
         //Sort Method of Merge Sort
 
-            public static void SortofMS(int[] MyArray, int Low, int High)
+        public static void SortofMS(int[] MyArray, int Low, int High)
+        {
+            int Mid;
+            if (Low < High)
             {
-                int Mid;
-                if (Low < High)
-                {
-                    Mid = (Low + High) / 2;
-                    SortofMS(MyArray, Low, Mid);
-                    SortofMS(MyArray, Mid + 1, High);
-                    MergeofMS(MyArray, Low, Mid, High);
-                }
+                Mid = (Low + High) / 2;
+                SortofMS(MyArray, Low, Mid);
+                SortofMS(MyArray, Mid + 1, High);
+                MergeofMS(MyArray, Low, Mid, High);
             }
+        }
 
         //Merge Method of Merge Sort
 
-            public static void MergeofMS(int[] MyArray, int Low, int Mid, int High)
+        public static void MergeofMS(int[] MyArray, int Low, int Mid, int High)
+        {
+            int i = Low, j = Mid + 1, k = Low;
+            int[] temp = new int[MyArray.Length];    // temp is a temporary array to store result
+            while (i <= Mid && j <= High)
             {
-                int i = Low, j = Mid + 1, k = Low;
-                int[] temp = new int[MyArray.Length];    // temp is a temporary array to store result
-                while (i <= Mid && j <= High)
-                {
-                    if (MyArray[i] < MyArray[j])
-                    {
-                        temp[k++] = MyArray[i++];
-                    }
-                    else
-                    {
-                        temp[k++] = MyArray[j++];
-                    }
-                }
-                while (j <= High)
-                {
-                    temp[k++] = MyArray[j++];
-                }
-                while (i <= Mid)
+                if (MyArray[i] < MyArray[j])
                 {
                     temp[k++] = MyArray[i++];
                 }
-                for (i = Low; i <= High; i++)
+                else
                 {
-                    MyArray[i] = temp[i];
+                    temp[k++] = MyArray[j++];
                 }
             }
+            while (j <= High)
+            {
+                temp[k++] = MyArray[j++];
+            }
+            while (i <= Mid)
+            {
+                temp[k++] = MyArray[i++];
+            }
+            for (i = Low; i <= High; i++)
+            {
+                MyArray[i] = temp[i];
+            }
+        }
 
-    //Quick sort
+        //Quick sort
 
         public static void QuickSort(int[] MyArray)
         {
@@ -195,73 +195,73 @@ namespace Algorithm
 
         //Sort Method of Quick Sort
 
-            public static void SortofQS(int[] MyArray, int Low, int High)
+        public static void SortofQS(int[] MyArray, int Low, int High)
+        {
+            if (Low < High)
             {
-                if (Low < High)
-                {
-                    int Pivot = Partition(MyArray, Low, High);
+                int Pivot = Partition(MyArray, Low, High);
 
-                    SortofQS(MyArray, Low, Pivot - 1);
-                    SortofQS(MyArray, Pivot + 1, High);
-                }
-
+                SortofQS(MyArray, Low, Pivot - 1);
+                SortofQS(MyArray, Pivot + 1, High);
             }
+
+        }
 
         //Partition Method of Quick Sort
 
-            public static int Partition(int[] MyArray, int Low, int High)
+        public static int Partition(int[] MyArray, int Low, int High)
+        {
+            int Pivot = Low++;
+            while (Low < High)
             {
-                int Pivot = Low++;
-                while (Low < High)
+                while (MyArray[Low] < MyArray[Pivot] && Low < High)
                 {
-                    while (MyArray[Low] < MyArray[Pivot] && Low < High)
-                    {
-                        Low++;
-                    }
-                    while (MyArray[High] > MyArray[Pivot] && High > Low)
-                    {
-                        High--;
-                    }
-                    if (Low < High)
-                    {
-                        Swap(MyArray, Low++, High--);
-                    }
+                    Low++;
                 }
-                if (MyArray[High] <= MyArray[Pivot])
+                while (MyArray[High] > MyArray[Pivot] && High > Low)
                 {
-                    Swap(MyArray, High, Pivot);
-                    return (High);
+                    High--;
                 }
-                else
+                if (Low < High)
                 {
-                    Swap(MyArray, High - 1, Pivot);
-                    return (High - 1);
+                    Swap(MyArray, Low++, High--);
                 }
             }
+            if (MyArray[High] <= MyArray[Pivot])
+            {
+                Swap(MyArray, High, Pivot);
+                return (High);
+            }
+            else
+            {
+                Swap(MyArray, High - 1, Pivot);
+                return (High - 1);
+            }
+        }
 
-    //A delegate that has the same signature of the sorting method (has an array as parameter)
+        //A delegate that has the same signature of the sorting method (has an array as parameter)
 
         public delegate void SortDelegaet(int[] MyArray);
 
         //Delegate for Insertion sort
 
-            SortDelegaet InsDel = InsertionSort;
+        SortDelegaet InsDel = InsertionSort;
 
         //Delegate for Selection sort
 
-             SortDelegaet SelDel = SelectionSort;
+        SortDelegaet SelDel = SelectionSort;
 
         //Delegate for Bubble Sort 
 
-            SortDelegaet BubbleDel = BubbleSort;
+        SortDelegaet BubbleDel = BubbleSort;
 
         //Delegate for Merge Sort
 
-            SortDelegaet MergeDel = MergeSort;
+        SortDelegaet MergeDel = MergeSort;
 
         //Delegate for Quick sort
 
-            SortDelegaet QuickDel = QuickSort;
+        SortDelegaet QuickDel = QuickSort;
 
         //A method DisplayRunningTime that has an array and a delegate object as parameters, this method should:
         //  - Create a Stopwatch object from Stopwatch class in .net and reset it to zero.
