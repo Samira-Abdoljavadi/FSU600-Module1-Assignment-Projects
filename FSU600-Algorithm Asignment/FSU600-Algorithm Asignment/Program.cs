@@ -77,6 +77,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(55, 12);
 
+                    Algorithmclass1.Randomize(MyArray);
+
                     Algorithmclass1.DisplayRunTime(MyArray, InsDele);          
 
                 }
@@ -92,6 +94,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(55, 12);
 
+                    Algorithmclass1.Randomize(MyArray);
+
                     Algorithmclass1.DisplayRunTime(MyArray, SelDele);
 
                 }
@@ -105,6 +109,8 @@ namespace FSU600_Algorithm_Asignment
                     Algorithmclass1.SortDelegaet BubbleDele = Algorithmclass1.BubbleSort;
 
                     Console.SetCursorPosition(55, 12);
+
+                    Algorithmclass1.Randomize(MyArray);
 
                     Algorithmclass1.DisplayRunTime(MyArray, BubbleDele);
 
@@ -120,6 +126,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(55, 12);
 
+                    Algorithmclass1.Randomize(MyArray);
+
                     Algorithmclass1.DisplayRunTime(MyArray, MergeDele);
 
                 }
@@ -134,23 +142,27 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(55, 12);
 
+                    Algorithmclass1.Randomize(MyArray);
+
                     Algorithmclass1.DisplayRunTime(MyArray, QuickDele);
 
                 }
 
-                //else if (SelectedItem == "Lambda Quick Sort")
-                //    {
-                //        //Delegate for Lambda Quick Sort
+                else if (SelectedItem == "Lambda Sort")
+                {
+                    //Delegate for Lambda Sort
 
-                //        Console.WriteLine("Lambda Quick Sort:");
+                    Console.WriteLine("Lambda Sort:");
 
-                //        Algorithmclass1.SortDeleLam QuickDeleLam = Algorithmclass1.QuickSort;
+                    Algorithmclass1.SortDelegaet LambdaDele = Algorithmclass1.LambdaSort;
 
-                //        Console.SetCursorPosition(55, 12);
+                    Console.SetCursorPosition(55, 12);
 
-                //        int[] MyArray1 = Algorithmclass1.SortArray(MyArray, QuickDeleLam);
+                    Algorithmclass1.Randomize(MyArray);
 
-                //    }
+                    Algorithmclass1.DisplayRunTime(MyArray, LambdaDele);
+
+                }
 
                 else if (SelectedItem == "New Array")
                 {
@@ -167,6 +179,8 @@ namespace FSU600_Algorithm_Asignment
 
                     MyArray = Algorithmclass1.Prepare(ArraySize);
                     //Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
+
+                    continue;
 
                 }
 
@@ -197,12 +211,12 @@ namespace FSU600_Algorithm_Asignment
                     {
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
-                        Console.SetCursorPosition(50, 10 + i * 2);
+                        Console.SetCursorPosition(50, 5 + i * 2);
                         Console.WriteLine(MenuItems[i]);
                     }
                     else
                     {
-                        Console.SetCursorPosition(50, 10 + i * 2);
+                        Console.SetCursorPosition(50, 5 + i * 2);
                         Console.WriteLine(MenuItems[i]);
                     }
                     Console.ResetColor();

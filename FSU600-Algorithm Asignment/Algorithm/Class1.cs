@@ -204,7 +204,14 @@ namespace Algorithm
                 }
             }
 
-    //A delegate that has the same signature of the sorting method (has an array as parameter)
+        //Lambda Sort
+
+        public static void LambdaSort(int[] MyArray)
+        {
+            MyArray.OrderBy(Array => Array);
+        }
+
+        //A delegate that has the same signature of the sorting method (has an array as parameter)
 
         public delegate void SortDelegaet(int[] MyArray);
 
