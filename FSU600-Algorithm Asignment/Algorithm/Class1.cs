@@ -209,17 +209,26 @@ namespace Algorithm
         public delegate void SortDelegaet(int[] MyArray);
 
     //A method DisplayRunningTime that has an array and a delegate object as parameters:
-        
+
         public static void DisplayRunTime(int[] MyArray, SortDelegaet SortDele)
         {
             Stopwatch StopWatch = new Stopwatch();
+       
             StopWatch.Start();
+            
             SortDele(MyArray);
+
             StopWatch.Stop();
-            //Console.WriteLine(string.Format("\nHere's the Sorted Array: [{0}].", string.Join(", ", MyArray)));
+
             TimeSpan Ts = StopWatch.Elapsed;
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
+
+        //Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
+        //by using Lambda expression and then fill in the table with running time.
+
+       
+
     }
 }
