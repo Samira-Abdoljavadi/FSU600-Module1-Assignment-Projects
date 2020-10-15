@@ -28,19 +28,19 @@ namespace FSU600_Algorithm_Asignment
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
 
-            //Create the Array for the first time
+        //Create the Array for the first time
 
             Console.SetCursorPosition(50, 10);
             Console.WriteLine("Input The Array Size:");
+
             Console.SetCursorPosition(60, 15);
             ArraySize = Convert.ToInt32(Console.ReadLine());
 
-            //Call Prepare method
+        //Call Prepare method
 
             int[] MyArray = Algorithmclass1.Prepare(ArraySize);
 
-            //Console.BackgroundColor = ConsoleColor.Black;
-            //Console.Clear();
+        //Menu Items
 
             List<string> MenuItems = new List<string>()
             {
@@ -56,110 +56,105 @@ namespace FSU600_Algorithm_Asignment
 
             Console.CursorVisible = false;
 
-
             while (true)
             {
+
+            //Call Draw Menu
+
                 string SelectedItem = DrawMenu(MenuItems, IndexMenu);
 
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
                 Console.SetCursorPosition(50, 10);
 
-                //Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the sorting algorithm.
+            //Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the sorting algorithm.
 
                 if (SelectedItem == "Insertion Sort")
                 {
-                    //Delegate for Insertion sort
 
-                    Console.WriteLine("Insertion Sort:");
+                //Delegate for Insertion sort
 
                     Algorithmclass1.SortDelegaet InsDele = Algorithmclass1.InsertionSort;
 
+                    Console.WriteLine("Insertion Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, InsDele);          
 
                 }
 
                 else if (SelectedItem == "Selection Sort")
                 {
-                    //Delegate for Selection sort
 
-
-                    Console.WriteLine("Selection Sort:");
+                //Delegate for Selection sort
 
                     Algorithmclass1.SortDelegaet SelDele = Algorithmclass1.SelectionSort;
 
+                    Console.WriteLine("Selection Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, SelDele);
 
                 }
 
                 else if (SelectedItem == "Bubble Sort")
                 {
-                    //Delegate for Bubble Sort 
 
-                    Console.WriteLine("Bubble Sort:");
+                //Delegate for Bubble Sort 
 
                     Algorithmclass1.SortDelegaet BubbleDele = Algorithmclass1.BubbleSort;
 
+                    Console.WriteLine("Bubble Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, BubbleDele);
 
                 }
 
                 else if (SelectedItem == "Merge Sort")
                 {
-                    //Delegate for Merge Sort
 
-                    Console.WriteLine("Merge Sort");
+                //Delegate for Merge Sort
 
-                    Algorithmclass1.SortDelegaet MergeDele = Algorithmclass1.MergeSort;
+                     Algorithmclass1.SortDelegaet MergeDele = Algorithmclass1.MergeSort;
 
+                    Console.WriteLine("Merge Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, MergeDele);
 
                 }
 
                 else if (SelectedItem == "Quick Sort")
                 {
-                    //Delegate for Quick sort
 
-                    Console.WriteLine("Quick Sort:");
+                //Delegate for Quick sort
 
                     Algorithmclass1.SortDelegaet QuickDele = Algorithmclass1.QuickSort;
 
+                    Console.WriteLine("Quick Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, QuickDele);
 
                 }
 
                 else if (SelectedItem == "Lambda Sort")
                 {
-                    //Delegate for Lambda Sort
 
-                    Console.WriteLine("Lambda Sort:");
+                //Delegate for Lambda Sort
 
                     Algorithmclass1.SortDelegaet LambdaDele = Algorithmclass1.LambdaSort;
 
+                    Console.WriteLine("Lambda Sort:");
                     Console.SetCursorPosition(55, 12);
 
                     Algorithmclass1.Randomize(MyArray);
-
                     Algorithmclass1.DisplayRunTime(MyArray, LambdaDele);
 
                 }
@@ -173,13 +168,13 @@ namespace FSU600_Algorithm_Asignment
                     Console.SetCursorPosition(50, 10);
                     Console.WriteLine("Input The Array Size:");
                     Console.SetCursorPosition(60, 15);
+                   
                     ArraySize = Convert.ToInt32(Console.ReadLine());
 
-                    //Call Prepare method
+                //Call Prepare method
 
                     MyArray = Algorithmclass1.Prepare(ArraySize);
-                    //Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
-
+                   
                     continue;
 
                 }
@@ -223,15 +218,16 @@ namespace FSU600_Algorithm_Asignment
                 }
 
                 ConsoleKeyInfo Currkey = Console.ReadKey();
+
                 if (Currkey.Key == ConsoleKey.DownArrow)
                 {
                     if (IndexMenu == MenuItems.Count - 1) { }
-                    else { IndexMenu++; }
+                    else  IndexMenu++; 
                 }
                 else if (Currkey.Key == ConsoleKey.UpArrow)
                 {
                     if (IndexMenu <= 0) { }
-                    else { IndexMenu--; }
+                    else  IndexMenu--; 
                 }
                 else if (Currkey.Key == ConsoleKey.LeftArrow)
                 {
@@ -247,12 +243,9 @@ namespace FSU600_Algorithm_Asignment
                 }
                 else
                 {
-                    return "";
+                    Console.Clear();
                 }
-
             }
         }
-
-
     }
 }

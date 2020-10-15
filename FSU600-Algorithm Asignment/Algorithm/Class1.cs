@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace Algorithm
 {
 
-    //Create a dynamic link library with the name Algorithms that contains
+//Create a dynamic link library with the name Algorithm
 
     public class Algorithmclass1
     {
@@ -76,10 +76,10 @@ namespace Algorithm
                 {
                     if (MyArray[Min] > MyArray[j])
                     {
-                        Min = j;// keeps track of the index for the minimum value.
+                        Min = j;
                     }
                 }
-                Swap(MyArray, i, Min);//swap the minimum element with the current element.
+                Swap(MyArray, i, Min);
             }
         }
 
@@ -204,18 +204,21 @@ namespace Algorithm
                 }
             }
 
-        //Lambda Sort
+    //Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
+    //by using Lambda expression
+
+    //Lambda Sort
 
         public static void LambdaSort(int[] MyArray)
         {
             MyArray.OrderBy(Array => Array);
         }
 
-        //A delegate that has the same signature of the sorting method (has an array as parameter)
+    //A delegate that has the same signature of the sorting method (has an array as parameter)
 
         public delegate void SortDelegaet(int[] MyArray);
 
-    //A method DisplayRunningTime that has an array and a delegate object as parameters:
+    //A method DisplayRunningTime that has an array and a delegate object as parameters
 
         public static void DisplayRunTime(int[] MyArray, SortDelegaet SortDele)
         {
@@ -231,11 +234,5 @@ namespace Algorithm
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
-
-        //Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
-        //by using Lambda expression and then fill in the table with running time.
-
-       
-
     }
 }
