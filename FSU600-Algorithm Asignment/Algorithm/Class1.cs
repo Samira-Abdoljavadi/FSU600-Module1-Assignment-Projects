@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
+//////////////////////////////////////////////////////////////////////////  PART D  //////////////////////////////////////////////////
+
 namespace Algorithm
 {
 
@@ -216,11 +218,11 @@ namespace Algorithm
 
     //A delegate that has the same signature of the sorting method (has an array as parameter)
 
-        public delegate void SortDelegaet(int[] MyArray);
+        public delegate void SortDelegate(int[] MyArray);
 
     //A method DisplayRunningTime that has an array and a delegate object as parameters
 
-        public static void DisplayRunTime(int[] MyArray, SortDelegaet SortDele)
+        public static void SortRunTime(int[] MyArray, SortDelegate SortDele)
         {
             Stopwatch StopWatch = new Stopwatch();
        
@@ -234,5 +236,79 @@ namespace Algorithm
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
+
+//////////////////////////////////////////////////////////////////////////  PART C  //////////////////////////////////////////////////
+
+    //A method to Implement each of the following searching algorithms
+
+    //Linear Search 
+
+        public static int LineSearch (int[] MyArray, int X)
+        {
+
+            int i;
+            for (i = 0; i < MyArray.Length && MyArray[i] != X; i++) ;
+
+            if (i < MyArray.Length && MyArray[i] == X) { return i; }
+            else { return -1; }
+      
+        }
+
+    //and Binary Search
+
+        public static int BinarySearch(int[] MyArray, int X)
+        {
+
+            int i = 0, j = MyArray.Length, Mid;
+            
+            while (i < j)
+            {
+                Mid = (i + j) / 2;
+
+                if (X > MyArray[Mid]) { i = Mid + 1; }
+                else    {   j = Mid;    }
+            }
+                        
+            if (X == MyArray[i]) { return i; }
+            else { return -1; }
+
+        }
+
+    //Lambda Search
+
+        public static int LambdaSearch(int[] MyArray, int X)
+        {
+            MyArray.Where((Array,Xi) => Array == Xi);
+        }
+
+        //Create a suitable delegate that represents searching methods
+
+        public delegate int SearchDelegate(int[] MyArray, int X);
+        
+    //Improve DisplayRunningTime method to display the running time of the searching algorithms
+        
+        public static void SearchRunTime(int[] MyArray, int X, SearchDelegate SearchDele)
+        {
+            int Location;
+            Stopwatch StopWatch = new Stopwatch();
+       
+            StopWatch.Start();
+
+            Location = SearchDele(MyArray,X);
+
+            StopWatch.Stop();
+
+            if (Location == -1)
+                Console.WriteLine("Not Found");
+            else Console.WriteLine("Found");
+
+            TimeSpan Ts = StopWatch.Elapsed;
+            Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
+                        Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
+        }
+
+
+
+
     }
 }
