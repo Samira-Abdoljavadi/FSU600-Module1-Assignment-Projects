@@ -260,7 +260,7 @@ namespace Algorithm
         {
 
             int i = 0, j = MyArray.Length, Mid;
-            
+
             while (i < j)
             {
                 Mid = (i + j) / 2;
@@ -278,7 +278,8 @@ namespace Algorithm
 
         public static int LambdaSearch(int[] MyArray, int X)
         {
-            MyArray.Where((Array,Xi) => Array == Xi);
+            int[] SortedArray = MyArray.Where(i => i == X).ToArray();
+            return SortedArray.Length-1;
         }
 
         //Create a suitable delegate that represents searching methods
