@@ -6,17 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-//////////////////////////////////////////////////////////////////////////  PART D  //////////////////////////////////////////////////
+// // // // // // // // // // // // // // // // // // // // //    PART D  // // // // // // // // // // // // // // // // // // // // //
 
 namespace Algorithm
 {
 
-//Create a dynamic link library with the name Algorithm
+// Create a dynamic link library with the name Algorithm
 
     public class Algorithmclass1
     {
 
-    //A method Swap to swap two data values at two positions in a given integer array.
+    // A method Swap to swap two data values at two positions in a given integer array.
 
         public static void Swap(int[] MyArray, int m, int n)
         {
@@ -26,7 +26,7 @@ namespace Algorithm
             MyArray[n] = temp;
         }
 
-    //A method Randomize to create the random array of data, random numbers are between 0 and 10 times the array size.
+    // A method Randomize to create the random array of data, random numbers are between 0 and 10 times the array size.
 
         public static void Randomize(int[] MyArray)
         {
@@ -37,8 +37,8 @@ namespace Algorithm
             }
         }
 
-    //A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
-    //Then call the Randomize passing it the array.
+    // A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
+    // Then call the Randomize passing it the array.
 
         public static int[] Prepare(int ArraySize)
         {
@@ -49,9 +49,9 @@ namespace Algorithm
             return MyArray;
         }
 
-    //A method to Implement each of the following sorting algorithms: 
+    // A method to Implement each of the following sorting algorithms: 
 
-    //Insertion sort 
+    // Insertion sort 
 
         public static void InsertionSort(int[] MyArray)
         {
@@ -67,7 +67,7 @@ namespace Algorithm
             }
         }
 
-    //Selection sort
+    // Selection sort
 
         public static void SelectionSort(int[] MyArray)
         {
@@ -85,7 +85,7 @@ namespace Algorithm
             }
         }
 
-    //Bubble Sort  
+    // Bubble Sort  
 
         public static void BubbleSort(int[] MyArray)
         {
@@ -101,14 +101,14 @@ namespace Algorithm
             }
         }
 
-    //Merge Sort
+    // Merge Sort
 
         public static void MergeSort(int[] MyArray)
         {
             SortofMS(MyArray, 0, MyArray.Length - 1);
         }
 
-        //Sort Method of Merge Sort
+        // Sort Method of Merge Sort
 
             public static void SortofMS(int[] MyArray, int Low, int High)
             {
@@ -122,12 +122,12 @@ namespace Algorithm
                 }
             }
 
-        //Merge Method of Merge Sort
+        // Merge Method of Merge Sort
 
             public static void MergeofMS(int[] MyArray, int Low, int Mid, int High)
             {
                 int i = Low, j = Mid + 1, k = Low;
-                int[] temp = new int[MyArray.Length];    // temp is a temporary array to store result
+                int[] temp = new int[MyArray.Length];    //  temp is a temporary array to store result
                 while (i <= Mid && j <= High)
                 {
                     if (MyArray[i] < MyArray[j])
@@ -153,14 +153,14 @@ namespace Algorithm
                 }
             }
 
-    //Quick sort
+    // Quick sort
 
         public static void QuickSort(int[] MyArray)
         {
             SortofQS(MyArray, 0, MyArray.Length - 1);
         }
 
-        //Sort Method of Quick Sort
+        // Sort Method of Quick Sort
 
             public static void SortofQS(int[] MyArray, int Low, int High)
             {
@@ -174,7 +174,7 @@ namespace Algorithm
 
             }
 
-        //Partition Method of Quick Sort
+        // Partition Method of Quick Sort
 
             public static int Partition(int[] MyArray, int Low, int High)
             {
@@ -206,21 +206,21 @@ namespace Algorithm
                 }
             }
 
-    //Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
-    //by using Lambda expression
+    // Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
+    // by using Lambda expression
 
-    //Lambda Sort
+    // Lambda Sort
 
         public static void LambdaSort(int[] MyArray)
         {
             MyArray.OrderBy(Array => Array);
         }
 
-    //A delegate that has the same signature of the sorting method (has an array as parameter)
+    // A delegate that has the same signature of the sorting method (has an array as parameter)
 
         public delegate void SortDelegate(int[] MyArray);
 
-    //A method DisplayRunningTime that has an array and a delegate object as parameters
+    // A method DisplayRunningTime that has an array and a delegate object as parameters
 
         public static void SortRunTime(int[] MyArray, SortDelegate SortDele)
         {
@@ -237,11 +237,11 @@ namespace Algorithm
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
 
-//////////////////////////////////////////////////////////////////////////  PART C  //////////////////////////////////////////////////
+        // // // // // // // // // // // // // // // // // // // // //   PART C  // // // // // // // // // // // // // // // // // // // // //
 
-    //A method to Implement each of the following searching algorithms
+        // A method to Implement each of the following searching algorithms
 
-    //Linear Search 
+        //  Linear Search 
 
         public static int LineSearch (int[] MyArray, int X)
         {
@@ -254,7 +254,7 @@ namespace Algorithm
       
         }
 
-    //and Binary Search
+    //  Binary Search
 
         public static int BinarySearch(int[] MyArray, int X)
         {
@@ -269,24 +269,25 @@ namespace Algorithm
                 else    {   j = Mid;    }
             }
                         
-            if (X == MyArray[i]) { return i; }
+            if (i <= j && X == MyArray[i]) { return i; }
             else { return -1; }
 
         }
 
-    //Lambda Search
+        // Lambda Search
 
         public static int LambdaSearch(int[] MyArray, int X)
         {
-            int[] SortedArray = MyArray.Where(i => i == X).ToArray();
-            return SortedArray.Length-1;
+
+            return (MyArray.Where(i => i == X).Count() - 1);
+          
         }
 
-        //Create a suitable delegate that represents searching methods
+    // Create a suitable delegate that represents searching methods
 
         public delegate int SearchDelegate(int[] MyArray, int X);
         
-    //Improve DisplayRunningTime method to display the running time of the searching algorithms
+    // Improve DisplayRunningTime method to display the running time of the searching algorithms
         
         public static void SearchRunTime(int[] MyArray, int X, SearchDelegate SearchDele)
         {
@@ -307,9 +308,5 @@ namespace Algorithm
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
-
-
-
-
     }
 }

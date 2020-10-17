@@ -14,17 +14,17 @@ namespace FSU600_Algorithm_Asignment
         static void Main(string[] args)
         {
 
-        //Call Menu method
+        // Call Menu method
 
             Menu();
 
         }
 
-    //Menu Method
+    // Menu Method
         public static void Menu()
         {
 
-        //Define Menu Items
+        // Define Menu Items
 
             List<string> MenuItems = new List<string>()
             {
@@ -38,7 +38,7 @@ namespace FSU600_Algorithm_Asignment
             while (true)
             {
 
-            //Call Draw Menu
+            // Call Draw Menu
 
                 string SelectedItem = DrawMenu(MenuItems, IndexMenu);
 
@@ -65,7 +65,7 @@ namespace FSU600_Algorithm_Asignment
             }
         }
 
-    //Sort Menu Method
+    // Sort Menu Method
 
         public static void SortMenu()
         {
@@ -75,7 +75,7 @@ namespace FSU600_Algorithm_Asignment
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
 
-        //Create the Array for the first time
+        // Create the Array for the first time
 
             Console.SetCursorPosition(50, 10);
             Console.WriteLine("Input The Array Size:");
@@ -83,11 +83,11 @@ namespace FSU600_Algorithm_Asignment
             Console.SetCursorPosition(60, 15);
             ArraySize = Convert.ToInt32(Console.ReadLine());
 
-        //Call Prepare method
+        // Call Prepare method
 
             int[] MyArray = Algorithmclass1.Prepare(ArraySize);
 
-        //Define Sort Menu Items
+        // Define Sort Menu Items
 
             List<string> SortMenuItems = new List<string>()
             {
@@ -107,7 +107,7 @@ namespace FSU600_Algorithm_Asignment
             while (true)
             {
 
-            //Call Draw Menu to draw Sort Menu
+            // Call Draw Menu to draw Sort Menu
 
                 string SelectedItem = DrawMenu(SortMenuItems, IndexMenu);
 
@@ -115,12 +115,12 @@ namespace FSU600_Algorithm_Asignment
                 Console.Clear();
                 Console.SetCursorPosition(50, 10);
 
-            //Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the sorting algorithm.
+            // Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the sorting algorithm.
 
                 if (SelectedItem == "Insertion Sort")
                 {
 
-                //Delegate for Insertion sort
+                // Delegate for Insertion sort
 
                     Algorithmclass1.SortDelegate InsDele = Algorithmclass1.InsertionSort;
 
@@ -135,7 +135,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Selection Sort")
                 {
 
-                //Delegate for Selection sort
+                // Delegate for Selection sort
 
                     Algorithmclass1.SortDelegate SelDele = Algorithmclass1.SelectionSort;
 
@@ -150,7 +150,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Bubble Sort")
                 {
 
-                //Delegate for Bubble Sort 
+                // Delegate for Bubble Sort 
 
                     Algorithmclass1.SortDelegate BubbleDele = Algorithmclass1.BubbleSort;
 
@@ -165,7 +165,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Merge Sort")
                 {
 
-                //Delegate for Merge Sort
+                // Delegate for Merge Sort
 
                      Algorithmclass1.SortDelegate MergeDele = Algorithmclass1.MergeSort;
 
@@ -180,7 +180,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Quick Sort")
                 {
 
-                //Delegate for Quick sort
+                // Delegate for Quick sort
 
                     Algorithmclass1.SortDelegate QuickDele = Algorithmclass1.QuickSort;
 
@@ -195,7 +195,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Lambda Sort")
                 {
 
-                //Delegate for Lambda Sort
+                // Delegate for Lambda Sort
 
                     Algorithmclass1.SortDelegate LamSortDele = Algorithmclass1.LambdaSort;
 
@@ -219,7 +219,7 @@ namespace FSU600_Algorithm_Asignment
                    
                     ArraySize = Convert.ToInt32(Console.ReadLine());
 
-                //Call Prepare method
+                // Call Prepare method
 
                     MyArray = Algorithmclass1.Prepare(ArraySize);
                    
@@ -246,7 +246,7 @@ namespace FSU600_Algorithm_Asignment
             }
         }
 
-    //Search Menu Method
+    // Search Menu Method
 
         public static void SearchMenu()
         {
@@ -256,7 +256,7 @@ namespace FSU600_Algorithm_Asignment
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
 
-        //Create the Array for the first time
+        // Create the Array for the first time
 
             Console.SetCursorPosition(50, 5);
             Console.WriteLine("Input The Array Size:");
@@ -264,15 +264,20 @@ namespace FSU600_Algorithm_Asignment
             Console.SetCursorPosition(60, 8);
             ArraySize = Convert.ToInt32(Console.ReadLine());
 
-        //Call Prepare method
+        // Call Prepare method
 
             int[] MyArray = Algorithmclass1.Prepare(ArraySize);
 
-            //Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
-            Console.SetCursorPosition(40, 12);
-            Console.WriteLine("First, Middle and Last Item in Array:");
-            Console.SetCursorPosition(52, 13);
-            Console.WriteLine("{0:00}\t{1:00}\t{2:00}", MyArray[0], MyArray[MyArray.Length/2], MyArray[MyArray.Length-1] );
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+            
+        //This Section Shows the First, Middle and Last Item in Array just for testing the run time in different situation
+
+                Console.SetCursorPosition(40, 12);
+                Console.WriteLine("First, Middle and Last Item in Array:");
+                Console.SetCursorPosition(52, 13);
+                Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length/2], MyArray[MyArray.Length-1] );
+
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
             Console.SetCursorPosition(45, 16);
             Console.WriteLine("Input The Element for Searching:");
@@ -281,7 +286,7 @@ namespace FSU600_Algorithm_Asignment
             X = Convert.ToInt32(Console.ReadLine());
 
 
-        //Define Search Menu Items
+        // Define Search Menu Items
 
             List<string> SearchMenuItems = new List<string>()
             {
@@ -299,7 +304,7 @@ namespace FSU600_Algorithm_Asignment
             while (true)
             {
 
-            //Call Draw Menu to draw Search Menu
+            // Call Draw Menu to draw Search Menu
 
                 string SelectedItem = DrawMenu(SearchMenuItems, IndexMenu);
 
@@ -307,12 +312,12 @@ namespace FSU600_Algorithm_Asignment
                 Console.Clear();
                 Console.SetCursorPosition(50, 10);
 
-            //Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the searching algorithm.
+            // Call DisplayRunningTime method passing it the prepared array and the delegate object that has the name of the searching algorithm.
 
                 if (SelectedItem == "Linear Search")
                 {
 
-                //Delegate for Linear Search
+                // Delegate for Linear Search
 
                     Algorithmclass1.SearchDelegate LineDele = Algorithmclass1.LineSearch;
 
@@ -326,20 +331,26 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Binary Search")
                 {
 
-                //Delegate for Binary Search
+                // Delegate for Binary Search
 
                     Algorithmclass1.SearchDelegate BinDele = Algorithmclass1.BinarySearch;
 
                     Console.WriteLine("Binary Search:");
 
-                //Sorting the Array
+                // Sorting the Array
 
                     int[] SortedArray = MyArray.OrderBy(Array => Array).ToArray();
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+                //This Section Shows the First, Middle and Last Item in Array just for testing the run time in different situation
 
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
                     Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0:00}\t{1:00}\t{2:00}", SortedArray[0], SortedArray[MyArray.Length / 2], SortedArray[MyArray.Length - 1]);
+                    Console.WriteLine("{0}\t{1}\t{2}", SortedArray[0], SortedArray[MyArray.Length / 2], SortedArray[MyArray.Length - 1]);
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
                     Console.SetCursorPosition(45, 16);
                     Console.WriteLine("Input The Element for Searching:");
@@ -360,7 +371,7 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Lambda Search")
                 {
 
-                //Delegate for Lambda Search
+                // Delegate for Lambda Search
 
                     Algorithmclass1.SearchDelegate LamSerDele = Algorithmclass1.LambdaSearch;
 
@@ -377,10 +388,16 @@ namespace FSU600_Algorithm_Asignment
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
 
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+                //This Section Shows the First, Middle and Last Item in Array just for testing the run time in different situation
+
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
                     Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0:00}\t{1:00}\t{2:00}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+                    Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
                     Console.SetCursorPosition(45, 16);
                     Console.WriteLine("Input The Element for Searching:");
@@ -404,15 +421,20 @@ namespace FSU600_Algorithm_Asignment
                     Console.SetCursorPosition(60, 8);
                     ArraySize = Convert.ToInt32(Console.ReadLine());
 
-                //Call Prepare method
+                // Call Prepare method
 
                     MyArray = Algorithmclass1.Prepare(ArraySize);
 
-                    //Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+                //This Section Shows the First, Middle and Last Item in Array just for testing the run time in different situation
+
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
                     Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0:00}\t{1:00}\t{2:00}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+                    Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+
+                // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
                     Console.SetCursorPosition(45, 16);
                     Console.WriteLine("Input The Element for Searching:");
@@ -443,6 +465,7 @@ namespace FSU600_Algorithm_Asignment
             }
         }
 
+    // Draw Menue
         public static string DrawMenu(List<string> MenuItems, int IndexMenu)
         {
             Console.BackgroundColor = ConsoleColor.Black;
@@ -492,5 +515,8 @@ namespace FSU600_Algorithm_Asignment
                 }
             }
         }
+
+    // Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
+
     }
 }
