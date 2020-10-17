@@ -222,7 +222,7 @@ namespace Algorithm
 
     // A method DisplayRunningTime that has an array and a delegate object as parameters
 
-        public static void SortRunTime(int[] MyArray, SortDelegate SortDele)
+        public static async void SortRunTime(int[] MyArray, SortDelegate SortDele)
         {
             Stopwatch StopWatch = new Stopwatch();
        
@@ -237,11 +237,11 @@ namespace Algorithm
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
 
-        // // // // // // // // // // // // // // // // // // // // //   PART C  // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // //   PART C  // // // // // // // // // // // // // // // // // // // // //
 
-        // A method to Implement each of the following searching algorithms
+    // A method to Implement each of the following searching algorithms
 
-        //  Linear Search 
+    //  Linear Search 
 
         public static int LineSearch (int[] MyArray, int X)
         {
@@ -274,7 +274,7 @@ namespace Algorithm
 
         }
 
-        // Lambda Search
+    // Lambda Search
 
         public static int LambdaSearch(int[] MyArray, int X)
         {
@@ -289,7 +289,7 @@ namespace Algorithm
         
     // Improve DisplayRunningTime method to display the running time of the searching algorithms
         
-        public static void SearchRunTime(int[] MyArray, int X, SearchDelegate SearchDele)
+        public static async void SearchRunTime(int[] MyArray, int X, SearchDelegate SearchDele)
         {
             int Location;
             Stopwatch StopWatch = new Stopwatch();

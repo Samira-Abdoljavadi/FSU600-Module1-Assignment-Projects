@@ -30,6 +30,7 @@ namespace FSU600_Algorithm_Asignment
             {
                 "Sorting",
                 "Searching",
+                "File",
                 "Exit"
             };
 
@@ -55,6 +56,15 @@ namespace FSU600_Algorithm_Asignment
                 else if (SelectedItem == "Searching")
                 {
                     SearchMenu();
+                    continue;
+                }
+
+                else if (SelectedItem == "File")
+                {
+                    string text = System.IO.File.ReadAllText(@"C:\Employees.txt");
+
+                    System.Console.WriteLine("Contents of WriteText.txt = {0}", text);
+
                     continue;
                 }
 
