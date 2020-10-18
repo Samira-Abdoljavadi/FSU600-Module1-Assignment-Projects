@@ -7,6 +7,12 @@ using Algorithm;
 
 namespace FSU600_Algorithm_Asignment
 {
+    public class Employee
+    {
+        public string Name { get; set; }
+        public string Department { get; set; }
+        public int Experience { get; set; }
+    }
     class Program
     {
         static int IndexMenu = 0;
@@ -61,10 +67,8 @@ namespace FSU600_Algorithm_Asignment
 
                 else if (SelectedItem == "File")
                 {
-                    string text = System.IO.File.ReadAllText(@"C:\Employees.txt");
-
-                    System.Console.WriteLine("Contents of WriteText.txt = {0}", text);
-
+                   
+                    FileMenu();
                     continue;
                 }
 
@@ -469,6 +473,130 @@ namespace FSU600_Algorithm_Asignment
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.SetCursorPosition(50, 20);
+                Console.WriteLine("Press Any Key To Continue");
+                Console.ReadKey();
+
+            }
+        }
+
+    // File Menu Method
+
+        public static void FileMenu()
+        {
+
+            //Console.BackgroundColor = ConsoleColor.Gray;
+            //Console.ForegroundColor = ConsoleColor.Black;
+            //Console.Clear();
+
+        // Define File Menu Items
+
+            List<string> FileMenuItems = new List<string>()
+            {
+                "Filter",
+                "Map",
+                "Reduce",
+                "Return Back",
+                "Exit"
+            };
+
+            Console.CursorVisible = false;
+
+            //List<Employee> Employees = new List<Employee>();
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Employees.txt");
+            //foreach (string line in lines)
+            //{
+            //    string[] split = line.Split('|');
+
+            //    Employees.Add(new Employee { Name = split[0], Department = split[1], Experience = Convert.ToInt32(split[2]) } );
+
+            //}
+
+            int i = 0;
+
+            while (true)
+            {
+
+            // Call Draw Menu to draw File Menu
+
+                string SelectedItem = DrawMenu(FileMenuItems, IndexMenu);
+
+                
+
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Console.SetCursorPosition(40, 10);
+
+            //Write a C# filter function in that filters the  employee 's names for the string “an”
+                
+                if (SelectedItem == "Filter")
+                {
+                    Console.WriteLine("Filter:");
+                    Console.SetCursorPosition(40, 12);
+                    Console.WriteLine("The  Employee's Names that contains the string “an”:");
+
+                    //Func<string, bool> filter = S => S.Contains("an");
+
+                    //foreach (var Employe in Employees)
+                    //    if (filter(Employe.Name))
+                    //    {
+                    //        Console.SetCursorPosition(50, 12 + (i+=2));
+                    //        Console.WriteLine("{0}", Employe.Name);
+                    //    }
+
+                    Func<string, bool> filter = S => S.Substring(0, S.IndexOf('|')).Contains("an");
+                    foreach (string line in lines)
+                        if (filter(line))
+                        {
+                            Console.SetCursorPosition(50, 12 + (i += 2));
+                            Console.WriteLine("{0}", line.Substring(0, line.IndexOf('|')));
+                        }
+                }
+
+                //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
+
+                else if (SelectedItem == "Map")
+                {
+                    Console.WriteLine("Map:");
+                    Console.SetCursorPosition(40, 12);
+                    Console.WriteLine("The  Employee's Names:");
+
+                    string[] Names = new string[lines.Length];                    
+                    
+                    Func<string, string> Map = S => S.Substring(0, S.IndexOf(' '));
+
+                    i = 0;
+                    
+                    foreach (string line in lines)
+                        Names[i++] = Map(line);
+                       
+
+                        //if (Map(line))
+                        //{
+                        //    Console.SetCursorPosition(50, 12 + (i += 2));
+                        //    Console.WriteLine("{0}", line.Substring(0, line.IndexOf('|')));
+                        //}
+                }
+
+                else if (SelectedItem == "Reduce")
+                {
+
+                
+
+                }
+
+                else if (SelectedItem == "Return Back")
+                {
+                    return;
+                }
+
+                else if (SelectedItem == "Exit")
+                {
+                    Environment.Exit(0);
+                }
+
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(50, 25);
                 Console.WriteLine("Press Any Key To Continue");
                 Console.ReadKey();
 
