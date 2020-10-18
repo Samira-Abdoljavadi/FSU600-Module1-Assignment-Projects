@@ -37,8 +37,8 @@ namespace Algorithm
             }
         }
 
-        // A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
-        // Then call the Randomize passing it the array.
+    // A method Prepare that takes an array size n as a parameter. And create an array of integers with this specific size.
+    // Then call the Randomize passing it the array.
 
         public static int[] Prepare(int ArraySize)
         {
@@ -49,9 +49,9 @@ namespace Algorithm
             return MyArray;
         }
 
-        // A method to Implement each of the following sorting algorithms: 
+    // A method to Implement each of the following sorting algorithms: 
 
-        // Insertion sort 
+    // Insertion sort 
 
         public static void InsertionSort(int[] MyArray)
         {
@@ -67,7 +67,7 @@ namespace Algorithm
             }
         }
 
-        // Selection sort
+    // Selection sort
 
         public static void SelectionSort(int[] MyArray)
         {
@@ -85,7 +85,7 @@ namespace Algorithm
             }
         }
 
-        // Bubble Sort  
+    // Bubble Sort  
 
         public static void BubbleSort(int[] MyArray)
         {
@@ -101,7 +101,7 @@ namespace Algorithm
             }
         }
 
-        // Merge Sort
+    // Merge Sort
 
         public static void MergeSort(int[] MyArray)
         {
@@ -110,50 +110,50 @@ namespace Algorithm
 
         // Sort Method of Merge Sort
 
-        public static void SortofMS(int[] MyArray, int Low, int High)
-        {
-            int Mid;
-            if (Low < High)
+            public static void SortofMS(int[] MyArray, int Low, int High)
             {
-                Mid = (Low + High) / 2;
-                SortofMS(MyArray, Low, Mid);
-                SortofMS(MyArray, Mid + 1, High);
-                MergeofMS(MyArray, Low, Mid, High);
+                int Mid;
+                if (Low < High)
+                {
+                    Mid = (Low + High) / 2;
+                    SortofMS(MyArray, Low, Mid);
+                    SortofMS(MyArray, Mid + 1, High);
+                    MergeofMS(MyArray, Low, Mid, High);
+                }
             }
-        }
 
         // Merge Method of Merge Sort
 
-        public static void MergeofMS(int[] MyArray, int Low, int Mid, int High)
-        {
-            int i = Low, j = Mid + 1, k = Low;
-            int[] temp = new int[MyArray.Length];    //  temp is a temporary array to store result
-            while (i <= Mid && j <= High)
+            public static void MergeofMS(int[] MyArray, int Low, int Mid, int High)
             {
-                if (MyArray[i] < MyArray[j])
+                int i = Low, j = Mid + 1, k = Low;
+                int[] temp = new int[MyArray.Length];    //  temp is a temporary array to store result
+                while (i <= Mid && j <= High)
                 {
-                    temp[k++] = MyArray[i++];
+                    if (MyArray[i] < MyArray[j])
+                    {
+                        temp[k++] = MyArray[i++];
+                    }
+                    else
+                    {
+                        temp[k++] = MyArray[j++];
+                    }
                 }
-                else
+                while (j <= High)
                 {
                     temp[k++] = MyArray[j++];
                 }
+                while (i <= Mid)
+                {
+                    temp[k++] = MyArray[i++];
+                }
+                for (i = Low; i <= High; i++)
+                {
+                    MyArray[i] = temp[i];
+                }
             }
-            while (j <= High)
-            {
-                temp[k++] = MyArray[j++];
-            }
-            while (i <= Mid)
-            {
-                temp[k++] = MyArray[i++];
-            }
-            for (i = Low; i <= High; i++)
-            {
-                MyArray[i] = temp[i];
-            }
-        }
 
-        // Quick sort
+    // Quick sort
 
         public static void QuickSort(int[] MyArray)
         {
@@ -162,65 +162,65 @@ namespace Algorithm
 
         // Sort Method of Quick Sort
 
-        public static void SortofQS(int[] MyArray, int Low, int High)
-        {
-            if (Low < High)
+            public static void SortofQS(int[] MyArray, int Low, int High)
             {
-                int Pivot = Partition(MyArray, Low, High);
+                if (Low < High)
+                {
+                    int Pivot = Partition(MyArray, Low, High);
 
-                SortofQS(MyArray, Low, Pivot - 1);
-                SortofQS(MyArray, Pivot + 1, High);
+                    SortofQS(MyArray, Low, Pivot - 1);
+                    SortofQS(MyArray, Pivot + 1, High);
+                }
+
             }
-
-        }
 
         // Partition Method of Quick Sort
 
-        public static int Partition(int[] MyArray, int Low, int High)
-        {
-            int Pivot = Low++;
-            while (Low < High)
+            public static int Partition(int[] MyArray, int Low, int High)
             {
-                while (MyArray[Low] < MyArray[Pivot] && Low < High)
+                int Pivot = Low++;
+                while (Low < High)
                 {
-                    Low++;
+                    while (MyArray[Low] < MyArray[Pivot] && Low < High)
+                    {
+                        Low++;
+                    }
+                    while (MyArray[High] > MyArray[Pivot] && High > Low)
+                    {
+                        High--;
+                    }
+                    if (Low < High)
+                    {
+                        Swap(MyArray, Low++, High--);
+                    }
                 }
-                while (MyArray[High] > MyArray[Pivot] && High > Low)
+                if (MyArray[High] <= MyArray[Pivot])
                 {
-                    High--;
+                    Swap(MyArray, High, Pivot);
+                    return (High);
                 }
-                if (Low < High)
+                else
                 {
-                    Swap(MyArray, Low++, High--);
+                    Swap(MyArray, High - 1, Pivot);
+                    return (High - 1);
                 }
             }
-            if (MyArray[High] <= MyArray[Pivot])
-            {
-                Swap(MyArray, High, Pivot);
-                return (High);
-            }
-            else
-            {
-                Swap(MyArray, High - 1, Pivot);
-                return (High - 1);
-            }
-        }
 
-        // Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
-        // by using Lambda expression
+    // Instaed of sorting in place, create a method that sorts an array without affecting the original(avoid mutation) 
+    // by using Lambda expression
 
-        // Lambda Sort
+    // Lambda Sort
 
         public static void LambdaSort(int[] MyArray)
         {
             MyArray.OrderBy(Array => Array);
         }
 
-        // A delegate that has the same signature of the sorting method (has an array as parameter)
+    // A delegate that has the same signature of the sorting method (has an array as parameter)
 
         public delegate void SortDelegate(int[] MyArray);
 
-        // A method DisplayRunningTime that has an array and a delegate object as parameters
+    // A method DisplayRunningTime that has an array and a delegate object as parameters
 
         public static async void SortRunTime(int[] MyArray, SortDelegate SortDele)
         {
@@ -245,20 +245,17 @@ namespace Algorithm
 
         public static int LineSearch(int[] MyArray, int X)
         {
-
             int i;
             for (i = 0; i < MyArray.Length && MyArray[i] != X; i++) ;
 
             if (i < MyArray.Length && MyArray[i] == X) { return i; }
             else { return -1; }
-
         }
 
     //  Binary Search
 
         public static int BinarySearch(int[] MyArray, int X)
         {
-
             int i = 0, j = MyArray.Length, Mid;
 
             while (i < j)
@@ -271,16 +268,13 @@ namespace Algorithm
 
             if (i <= j && X == MyArray[i]) { return i; }
             else { return -1; }
-
         }
 
     // Lambda Search
 
         public static int LambdaSearch(int[] MyArray, int X)
         {
-
             return (MyArray.Where(i => i == X).Count() - 1);
-
         }
 
     // Create a suitable delegate that represents searching methods
@@ -305,6 +299,8 @@ namespace Algorithm
             else Console.WriteLine("Found");
 
             TimeSpan Ts = StopWatch.Elapsed;
+
+            Console.SetCursorPosition(50, 15);
             Console.WriteLine("Elapsed Time is {0:00}:{1:00}:{2:00}.{3}",
                         Ts.Hours, Ts.Minutes, Ts.Seconds, Ts.Milliseconds);
         }
@@ -317,8 +313,7 @@ namespace Algorithm
 
         public static Func<List<string>> Filter = () =>
         {
-
-            var Names = new List<string>();
+            List<string> Names = new List<string>();
             
             foreach (string Line in Lines)
                 if (Line.Substring(0, Line.IndexOf('|')).Contains("an"))
@@ -327,15 +322,13 @@ namespace Algorithm
                 }
 
             return Names;
-
         };
 
-    //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
+    //Write a C# map function that manipulates the employees List and returns only the names in a separate list.
 
         public static Func<List<string>> Map = () =>
            {
-
-               var Names = new List<string>();
+               List<string> Names = new List<string>();
                
                foreach (String Line in Lines)
                    Names.Add(Line.Substring(0, Line.IndexOf('|')));
@@ -343,7 +336,7 @@ namespace Algorithm
                return Names;
            };
 
-        //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
+    //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
 
         public static Func<int> Reduce = () =>
         {

@@ -14,11 +14,9 @@ namespace FSU600_Algorithm_Asignment
 
         static void Main(string[] args)
         {
-
         // Call Menu method
 
             Menu();
-
         }
 
     // Menu Method
@@ -44,9 +42,9 @@ namespace FSU600_Algorithm_Asignment
 
                 string SelectedItem = DrawMenu(MenuItems, IndexMenu);
 
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Clear();
-                Console.SetCursorPosition(50, 10);
+                //Console.BackgroundColor = ConsoleColor.Black;
+                //Console.Clear();
+                //Console.SetCursorPosition(50, 10);
 
                 if (SelectedItem == "Sorting")
                 {
@@ -88,8 +86,8 @@ namespace FSU600_Algorithm_Asignment
 
             Console.SetCursorPosition(50, 10);
             Console.WriteLine("Input The Array Size:");
-
             Console.SetCursorPosition(60, 15);
+       
             ArraySize = Convert.ToInt32(Console.ReadLine());
 
         // Call Prepare method
@@ -176,7 +174,7 @@ namespace FSU600_Algorithm_Asignment
 
                 // Delegate for Merge Sort
 
-                     Algorithmclass1.SortDelegate MergeDele = Algorithmclass1.MergeSort;
+                    Algorithmclass1.SortDelegate MergeDele = Algorithmclass1.MergeSort;
 
                     Console.WriteLine("Merge Sort:");
                     Console.SetCursorPosition(55, 12);
@@ -221,7 +219,6 @@ namespace FSU600_Algorithm_Asignment
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
-
                     Console.SetCursorPosition(50, 10);
                     Console.WriteLine("Input The Array Size:");
                     Console.SetCursorPosition(60, 15);
@@ -269,8 +266,8 @@ namespace FSU600_Algorithm_Asignment
 
             Console.SetCursorPosition(50, 5);
             Console.WriteLine("Input The Array Size:");
-
             Console.SetCursorPosition(60, 8);
+            
             ArraySize = Convert.ToInt32(Console.ReadLine());
 
         // Call Prepare method
@@ -283,8 +280,8 @@ namespace FSU600_Algorithm_Asignment
 
                 Console.SetCursorPosition(40, 12);
                 Console.WriteLine("First, Middle and Last Item in Array:");
-                Console.SetCursorPosition(52, 13);
-                Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length/2], MyArray[MyArray.Length-1] );
+                Console.SetCursorPosition(52, 14);
+                Console.WriteLine("{0}\t\t{1}\t\t{2}", MyArray[0], MyArray[MyArray.Length/2], MyArray[MyArray.Length-1] );
 
         // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -302,7 +299,7 @@ namespace FSU600_Algorithm_Asignment
                 "Linear Search",
                 "Binary Search",
                 "Lambda Search",
-                "New Search",
+                "New Search Element",
                 "New Array",
                 "Return Back",
                 "Exit"
@@ -356,8 +353,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
-                    Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0}\t{1}\t{2}", SortedArray[0], SortedArray[MyArray.Length / 2], SortedArray[MyArray.Length - 1]);
+                    Console.SetCursorPosition(52, 14);
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}", SortedArray[0], SortedArray[MyArray.Length / 2], SortedArray[MyArray.Length - 1]);
 
                 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -391,7 +388,7 @@ namespace FSU600_Algorithm_Asignment
 
                 }
 
-                else if (SelectedItem == "New Search")
+                else if (SelectedItem == "New Search Element")
                 {
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
@@ -403,8 +400,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
-                    Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+                    Console.SetCursorPosition(52, 14);
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
 
                 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -440,8 +437,8 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.SetCursorPosition(40, 12);
                     Console.WriteLine("First, Middle and Last Item in Array:");
-                    Console.SetCursorPosition(52, 13);
-                    Console.WriteLine("{0}\t{1}\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
+                    Console.SetCursorPosition(5, 14);
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}", MyArray[0], MyArray[MyArray.Length / 2], MyArray[MyArray.Length - 1]);
 
                 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -491,8 +488,6 @@ namespace FSU600_Algorithm_Asignment
 
             Console.CursorVisible = false;
 
-            //int i = 0;
-
             while (true)
             {
 
@@ -514,14 +509,14 @@ namespace FSU600_Algorithm_Asignment
                     Console.SetCursorPosition(40, 10);
                     Console.WriteLine("The Employee's Names that contains the string “an”:");
 
-                    var Names = Algorithmclass1.Filter();
+                    List<string> Names = Algorithmclass1.Filter();
 
                     Console.SetCursorPosition(48, 12);
                     Console.WriteLine(string.Format("{0}", string.Join(("\n\n").PadRight(50, ' '), Names)));
 
                 }
 
-                //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
+            //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
 
                 else if (SelectedItem == "Map")
                 {
@@ -530,14 +525,14 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.WriteLine("The Employee's Names:");
 
-                    var Names = Algorithmclass1.Map();
+                    List<string> Names = Algorithmclass1.Map();
 
                     Console.SetCursorPosition(48, 12);
                     Console.WriteLine(string.Format("{0}", string.Join(("\n\n").PadRight(50, ' '), Names)));
 
                 }
 
-                //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
+            //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
 
                 else if (SelectedItem == "Reduce")
                 {
@@ -620,8 +615,5 @@ namespace FSU600_Algorithm_Asignment
                 }
             }
         }
-
-    // Console.WriteLine(string.Format("Here's the Random Array: [{0}]", string.Join(", ", MyArray)));
-
     }
 }
