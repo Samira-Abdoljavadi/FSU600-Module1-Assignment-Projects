@@ -514,16 +514,14 @@ namespace FSU600_Algorithm_Asignment
                     Console.SetCursorPosition(40, 10);
                     Console.WriteLine("The Employee's Names that contains the string “an”:");
 
-                    string[] Names = Algorithmclass1.Filter();
-                    for (int i = 0; Names[i] != null ; i++)
+                    var Names = Algorithmclass1.Filter();
 
-                        {
-                            Console.SetCursorPosition(50, 12 + i * 2);
-                            Console.WriteLine(Names[i]);
-                        }
+                    Console.SetCursorPosition(48, 12);
+                    Console.WriteLine(string.Format("{0}", string.Join(("\n\n").PadRight(50, ' '), Names)));
+
                 }
 
-            //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
+                //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
 
                 else if (SelectedItem == "Map")
                 {
@@ -532,17 +530,14 @@ namespace FSU600_Algorithm_Asignment
 
                     Console.WriteLine("The Employee's Names:");
 
-                    string[] Names = Algorithmclass1.Map();
-                    for (int i = 0; i < Names.Length; i++)
+                    var Names = Algorithmclass1.Map();
 
-                    {
-                        Console.SetCursorPosition(50, 12 + i * 2);
-                        Console.WriteLine(Names[i]);
-                    }
+                    Console.SetCursorPosition(48, 12);
+                    Console.WriteLine(string.Format("{0}", string.Join(("\n\n").PadRight(50, ' '), Names)));
 
                 }
 
-            //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
+                //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
 
                 else if (SelectedItem == "Reduce")
                 {

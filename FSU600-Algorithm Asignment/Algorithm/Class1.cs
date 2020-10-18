@@ -315,16 +315,15 @@ namespace Algorithm
 
     //Write a C# filter function in that filters the  employee 's names for the string “an”
 
-        public static Func<string[]> Filter = () =>
+        public static Func<List<string>> Filter = () =>
         {
 
-            string[] Names = new string[Lines.Length];
-            int i = 0;
-
+            var Names = new List<string>();
+            
             foreach (string Line in Lines)
                 if (Line.Substring(0, Line.IndexOf('|')).Contains("an"))
                 {
-                    Names[i++] = Line.Substring(0, Line.IndexOf('|'));
+                    Names.Add(Line.Substring(0, Line.IndexOf('|')));
                 }
 
             return Names;
@@ -333,13 +332,14 @@ namespace Algorithm
 
     //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
 
-        public static Func<string[]> Map = () =>
+        public static Func<List<string>> Map = () =>
            {
-               string[] Names = new string[Lines.Length];
-               int i = 0;
 
+               var Names = new List<string>();
+               
                foreach (String Line in Lines)
-                   Names[i++] = Line.Substring(0, Line.IndexOf('|'));
+                   Names.Add(Line.Substring(0, Line.IndexOf('|')));
+
                return Names;
            };
 
