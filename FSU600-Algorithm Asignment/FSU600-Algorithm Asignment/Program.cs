@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +8,6 @@ using Algorithm;
 
 namespace FSU600_Algorithm_Asignment
 {
-    public class Employee
-    {
-        public string Name { get; set; }
-        public string Department { get; set; }
-        public int Experience { get; set; }
-    }
     class Program
     {
         static int IndexMenu = 0;
@@ -480,13 +475,8 @@ namespace FSU600_Algorithm_Asignment
         }
 
     // File Menu Method
-
         public static void FileMenu()
         {
-
-            //Console.BackgroundColor = ConsoleColor.Gray;
-            //Console.ForegroundColor = ConsoleColor.Black;
-            //Console.Clear();
 
         // Define File Menu Items
 
@@ -501,17 +491,7 @@ namespace FSU600_Algorithm_Asignment
 
             Console.CursorVisible = false;
 
-            //List<Employee> Employees = new List<Employee>();
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Employees.txt");
-            //foreach (string line in lines)
-            //{
-            //    string[] split = line.Split('|');
-
-            //    Employees.Add(new Employee { Name = split[0], Department = split[1], Experience = Convert.ToInt32(split[2]) } );
-
-            //}
-
-            int i = 0;
+            //int i = 0;
 
             while (true)
             {
@@ -520,67 +500,59 @@ namespace FSU600_Algorithm_Asignment
 
                 string SelectedItem = DrawMenu(FileMenuItems, IndexMenu);
 
-                
-
+                string[] Lines = System.IO.File.ReadAllLines(@"C:\Employees.txt");
+               
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
-                Console.SetCursorPosition(40, 10);
+                Console.SetCursorPosition(40, 5);
 
             //Write a C# filter function in that filters the  employee 's names for the string “an”
                 
                 if (SelectedItem == "Filter")
                 {
                     Console.WriteLine("Filter:");
-                    Console.SetCursorPosition(40, 12);
-                    Console.WriteLine("The  Employee's Names that contains the string “an”:");
+                    Console.SetCursorPosition(40, 10);
+                    Console.WriteLine("The Employee's Names that contains the string “an”:");
 
-                    //Func<string, bool> filter = S => S.Contains("an");
+                    string[] Names = Algorithmclass1.Filter();
+                    for (int i = 0; Names[i] != null ; i++)
 
-                    //foreach (var Employe in Employees)
-                    //    if (filter(Employe.Name))
-                    //    {
-                    //        Console.SetCursorPosition(50, 12 + (i+=2));
-                    //        Console.WriteLine("{0}", Employe.Name);
-                    //    }
-
-                    Func<string, bool> filter = S => S.Substring(0, S.IndexOf('|')).Contains("an");
-                    foreach (string line in lines)
-                        if (filter(line))
                         {
-                            Console.SetCursorPosition(50, 12 + (i += 2));
-                            Console.WriteLine("{0}", line.Substring(0, line.IndexOf('|')));
+                            Console.SetCursorPosition(50, 12 + i * 2);
+                            Console.WriteLine(Names[i]);
                         }
                 }
 
-                //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
+            //Write a C# map function  that manipulates the employees List and returns only the names in a separate list.
 
                 else if (SelectedItem == "Map")
                 {
                     Console.WriteLine("Map:");
-                    Console.SetCursorPosition(40, 12);
-                    Console.WriteLine("The  Employee's Names:");
+                    Console.SetCursorPosition(40, 10);
 
-                    string[] Names = new string[lines.Length];                    
-                    
-                    Func<string, string> Map = S => S.Substring(0, S.IndexOf(' '));
+                    Console.WriteLine("The Employee's Names:");
 
-                    i = 0;
-                    
-                    foreach (string line in lines)
-                        Names[i++] = Map(line);
-                       
+                    string[] Names = Algorithmclass1.Map();
+                    for (int i = 0; i < Names.Length; i++)
 
-                        //if (Map(line))
-                        //{
-                        //    Console.SetCursorPosition(50, 12 + (i += 2));
-                        //    Console.WriteLine("{0}", line.Substring(0, line.IndexOf('|')));
-                        //}
+                    {
+                        Console.SetCursorPosition(50, 12 + i * 2);
+                        Console.WriteLine(Names[i]);
+                    }
+
                 }
+
+            //Write a C# reduce function that manipulates the employees List and the sum of the years of experience of the employees.
 
                 else if (SelectedItem == "Reduce")
                 {
 
-                
+                    Console.WriteLine("Reduce:");
+                    Console.SetCursorPosition(40, 10);
+
+                    Console.WriteLine("The SUM of the years of experience of the employees is:");
+                    Console.SetCursorPosition(50, 12);
+                    Console.WriteLine(Algorithmclass1.Reduce());
 
                 }
 
